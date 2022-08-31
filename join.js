@@ -338,7 +338,7 @@ function join() {
     }
     changeScore(selected.length * combo);
     joined_squares += selected.length;
-    new_time += combo;
+    new_time += 2*combo;
     resetSelection();
     organizeSquares();
     checkPossibleMoves();
@@ -352,8 +352,6 @@ function activateBomb() {
       const y = selected[0].y;
       const index = squares[x][y];
       let points = 0;
-      selected_color = '';
-      selected = [];
       for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             if (squares[i][j] == index) {
@@ -366,7 +364,9 @@ function activateBomb() {
       changeScore(points);
       setBomb(false);
       bomb_sound.play();
+      resetSelection();
       organizeSquares();
+      checkPossibleMoves();
     }
   }
 }
