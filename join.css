@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white
+}
+
+#game_board {
+  background-color: gray;
+  background-position-y: 0;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#logo {
+  background-image: linear-gradient(to right, yellow, orange, red, mediumslateblue, dodgerblue, lawngreen);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#sub_header {
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+#panel {
+  border: 2px solid white;
+  border-radius: 4px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#start {
+  position: absolute;
+}
+
+#bomb {
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  font-size: x-large;
+  position: relative;
+}
+
+
+#squares {
+  background-image: linear-gradient(to right, yellow, orange, red, mediumslateblue, dodgerblue, lawngreen);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-position: -297px;
+  background-repeat: no-repeat;
+}
+
+
+.game {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  font-size: xxx-large;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-image: linear-gradient(to right, yellow, orange, red, mediumslateblue, dodgerblue, lawngreen);
+  border: 2px solid white;
+  width: 200px;
+  height: 30px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+}
+
+.value {
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}

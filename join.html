@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Daria">
+  <meta name="description" content="JOIN">
+  <title>JOIN</title>
+  <link rel="stylesheet" type="text/css" href="join.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <p id="logo">JOIN</p>
+  </div>
+
+  <div id="sub_header">
+    🟨🟧🟥🟪🟦🟩
+  </div>
+
+  <div class="game">
+    <button class="button" id="start" onclick="startGame()">S T A R T</button>
+    <button id="bomb" onclick="activateBomb()">💣</button>
+    <canvas id="game_board" width="600px" height="600px"></canvas>
+  </div>
+
+  <table id="panel">
+    <tr>
+      <th class="value"> Score: </th>
+      <th class="value"><span id="combo"></span></th>
+      <th class="value"> Time: </th>
+    </tr>
+    <tr>
+      <th> <span id="score" class="value"></span></th>
+      <th> <span id="squares" class="value">⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜</span></th>
+      <th> <span id="time" class="value"></span></th>
+    </tr>
+    <tr>
+      <th> <span id="level" class="value"></span></th>
+      <th>
+        <div><button id="join" class="button" onclick="join()">J O I N</button></div>
+      </th>
+      <th><span id="board" class="value"></span></th>
+    </tr>
+    </tabele>
+
+    <script src="join.js"></script>
+</body>
+
+</html>
