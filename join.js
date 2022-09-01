@@ -5,7 +5,7 @@ const draw = board.getContext("2d");
 const BOARD_SIZE = board.width;
 const START_SIZE = 8;
 const START_COLORS = 3;
-const START_TIME = 40;
+const START_TIME = 50;
 const EMPTY_COLOR = "black";
 const MIN_SELECTION = 4;
 const MAX_SELECTION = 12;
@@ -102,22 +102,22 @@ function pickRandomColor() {
 }
 
 function drawBoard() {
+  draw.shadowColor = 'black';
+  draw.shadowBlur = 10;
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
       draw.beginPath();
-      draw.shadowColor = 'black';
-      draw.shadowBlur = 10;
       draw.rect(i * square_size, j * square_size, square_size, square_size);
       draw.fillStyle = colors[squares[i][j]];
       draw.lineWidth = 1;
       draw.strokeStyle = "black";
       draw.fill();
       draw.stroke();
-      draw.shadowColor = '';
-      draw.shadowBlur = 0;
       draw.closePath();
     }
   }
+  draw.shadowColor = '';
+  draw.shadowBlur = 0;
 }
 
 function drawSelected() {
@@ -184,7 +184,7 @@ function setCombo() {
 }
 
 function addSelection(x, y) {
-  click_sound.play();
+  //click_sound.play();
   selected.push({
     x: x,
     y: y,
@@ -338,7 +338,7 @@ function join() {
     }
     changeScore(selected.length * combo);
     joined_squares += selected.length;
-    new_time += 2*combo;
+    new_time += combo;
     resetSelection();
     organizeSquares();
     checkPossibleMoves();
