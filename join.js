@@ -11,14 +11,14 @@ const MIN_SELECTION = 4;
 const MAX_SELECTION = 12;
 const MAX_LEVEL = 10;
 const BOMB_COLOR = "brown";
-const colors = [EMPTY_COLOR, "yellow", "orangered", "dodgerblue", "seagreen", "orange", "mediumslateblue","lawngreen", "hotpink", "cyan", "pink"];
+const colors = [EMPTY_COLOR, "yellow", "orangered", "dodgerblue", "seagreen", "orange", "mediumslateblue", "lawngreen", "hotpink", "cyan", "pink"];
 const level_num_colors = [3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6];
-const click_sound = new Audio("sounds/laser.wav"); 
-const join_sound = new Audio("sounds/apert2.wav"); 
-const game_won_sound = new Audio("sounds/applause.wav"); 
+const click_sound = new Audio("sounds/click.wav");
+const join_sound = new Audio("sounds/fall.wav");
+const game_won_sound = new Audio("sounds/applause.wav");
 const next_level_sound = new Audio("sounds/curve.wav");
-const game_over_sound = new Audio("sounds/falling.wav"); 
-const minus_points_sound = new Audio("sounds/pluck.wav");
+const game_over_sound = new Audio("sounds/falling.wav");
+const minus_points_sound = new Audio("sounds/click-error.wav");
 const bomb_sound = new Audio("sounds/explos.wav");
 
 let num_colors = START_COLORS;
@@ -55,7 +55,7 @@ function enableInput() {
 
 function setBomb(is_bomb) {
   bomb = is_bomb;
-  document.getElementById("bomb").style.visibility = bomb ? "" : "hidden"; 
+  document.getElementById("bomb").style.visibility = bomb ? "" : "hidden";
 }
 
 function startGame() {
@@ -180,11 +180,11 @@ function wrongSelection() {
 }
 
 function setCombo() {
-  combo = (Math.floor(selected.length / 2) - 1) * (Math.floor(level/3) + 1) ;
+  combo = (Math.floor(selected.length / 2) - 1) * (Math.floor(level / 3) + 1);
 }
 
 function addSelection(x, y) {
-  //click_sound.play();
+  click_sound.play();
   selected.push({
     x: x,
     y: y,
@@ -354,11 +354,11 @@ function activateBomb() {
       let points = 0;
       for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
-            if (squares[i][j] == index) {
-              squares[i][j] = 0;
-              points++;
-              joined_squares++;
-            }
+          if (squares[i][j] == index) {
+            squares[i][j] = 0;
+            points++;
+            joined_squares++;
+          }
         }
       }
       changeScore(points);
